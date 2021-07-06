@@ -217,7 +217,7 @@ class Home extends React.Component {
               <HomePageBadgeGrid2 users={this.state.saved_profiles} />
             </Route>
             <Route path="/filter">
-              <HomePageBadgeGrid2 users={this.state.filtered_users}>
+              <HomePageBadgeGrid2 users={this.state.filtered_users} />
             </Route>
             <Route></Route>
             <Route></Route>
