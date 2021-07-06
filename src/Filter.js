@@ -93,10 +93,10 @@ class Filter extends React.Component {
     this.setState({ filter_education: event.target.value });
   }
 
-  childFunction=(e)=>{
-    e.preventDefault();
-    this.props.functionCallFromHome(`${this.state.users_to_display}`);
-  }
+  // childFunction=(e)=>{
+  //   e.preventDefault();
+  //   this.props.functionCallFromHome(`${this.state.users_to_display}`);
+  // }
 
   handleSubmit(event) {
     event.preventDefault();
