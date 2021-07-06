@@ -156,7 +156,7 @@ class Filter extends React.Component {
       );
     }
 
-    this.props.functionCallFromHome(`${this.state.users_to_display}`)
+    this.props.functionCallFromHome(`${this.state.users_to_display}`);
   }
 
   render() {
@@ -475,7 +475,13 @@ class Filter extends React.Component {
             </Col>
           </Form.Group>
           <br />
-          <Button variant="outlined" onChange={this.handleSubmit}  type="submit" component={RouterLink} to="/filter">
+          <Button
+            variant="outlined"
+            onChange={this.handleSubmit}
+            type="submit"
+            component={RouterLink}
+            to="/filter"
+          >
             {/* onClick={this.childFunction.bind(this)} */}
             Filter
           </Button>
