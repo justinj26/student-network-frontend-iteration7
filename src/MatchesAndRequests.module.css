@@ -1,0 +1,28 @@
+.matches_and_requests_box {
+  position: absolute;
+
+  text-align: left;
+
+  width: 20%;
+  left: 80%;
+  top: 200px;
+  overflow: hidden;
+
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 0px;
+  display: inline-block;
+  padding: 20px;
+
+  background: #f9b916;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+  .matches_and_requests_box {
+    left: 75%;
+    width: 25%;
+
+  }
+
+}

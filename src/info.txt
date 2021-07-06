@@ -1,0 +1,8 @@
+login
+
+e-mail
+password
+
+thought:
+
+capitalize school names for standardization

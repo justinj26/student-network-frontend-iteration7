@@ -1,0 +1,9 @@
+.form_box {
+  display: flex;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 20px;
+  align-items: flex-start
+}

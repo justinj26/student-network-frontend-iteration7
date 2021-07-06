@@ -1,0 +1,69 @@
+.filter_box {
+  position: absolute;
+  width: 20%;
+  height: 627px;
+  left: 0;
+  top: 200px;
+  /* overflow: hidden; */
+
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 0px;
+  display: inline-block;
+  padding: 35px;
+
+  text-align: left;
+
+  background: #f9b916;
+}
+
+/* .cutoff_box {
+  margin-right: 15px;
+  padding-right: 15px;
+  overflow: hidden;
+} */
+
+/* .cutoff_box select {
+  background-color: transparent;
+  max-width: 95%;
+} */
+
+select[option].filter_box {
+  overflow: hidden;
+  border: 0px 0px 1px 0px;
+}
+
+/* select.filter_box { */
+  /* display: inline; */
+  /* border: none; */
+  /* max-width: 80%; */
+  /* border: 0px;
+  outline: 0px; */
+  /* background-color: transparent; */
+/* } */
+
+.filter_box select {
+max-width: 90%;
+background-color: transparent;
+
+border-radius: 10px;
+
+}
+
+.filter_box input {
+  max-width: 78%;
+}
+
+/* thought, a label is probably a block */
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+  .filter_box {
+    width: 25%;
+  }
+
+ 
+
+
+
+}
