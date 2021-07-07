@@ -137,12 +137,12 @@ class Filter extends React.Component {
     }
     if (this.state.filter_extracurricular2 !== "") {
       users_to_display = users_to_display.filter(
-        (user) => user.extracurricular2 === this.state.filter_extracurricular2
+        (user) => user.interests.member(this.state.filter_extracurricular2)
       );
     }
     if (this.state.filter_extracurricular3 !== "") {
       users_to_display = users_to_display.filter(
-        (user) => user.extracurricular3 === this.state.filter_extracurricular3
+        (user) => user.interests.member(this.state.filter_extracurricular3)
       );
     }
     if (this.state.filter_school !== "") {
@@ -155,6 +155,7 @@ class Filter extends React.Component {
         (user) => user.nationality === this.state.filter_nationality
       );
     }
+    this.setState({ users_to_display: users_to_display})
 
     this.props.functionCallFromHome(`${this.state.users_to_display}`);
   }
