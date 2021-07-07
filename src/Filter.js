@@ -311,7 +311,7 @@ class Filter extends React.Component {
       //     {/* <Button type="submit" onClick={this.handleSubmit} component={RouterLink} to="/home/filter">Search using filter</Button> */}
       //   </form>
       <div className={styles.filter_box}>
-        <p id={styles.filter_title}>Filter: </p>
+        <h2 className={styles.filter_title}>Filter: </h2>
         <Form>
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
