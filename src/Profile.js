@@ -25,15 +25,22 @@ class Profile extends React.Component {
   }
 
   render() {
+    first_name = form["first_name"],
+    last_name = form["last_name"], 
+    nationality = form["nationality"], 
+    interests = form["interests"],
+    education_level = form["education"],
+    school = form["school"],
+    work_email = form["work_email"])
     return (
       <div>
-        {/* <p>{this.state.user.}</p>
-        <p>{this.state.user.}</p>
-        <p>{this.state.user.}</p>
-        <p>{this.state.user.}</p>
-        <p>{this.state.user.}</p>
-        <p>{this.state.user.}</p>
-        <p>{this.state.user.}</p>
+        {/* <p>{this.state.user.first_name}</p>
+        <p>{this.state.user.last_name}</p>
+        <p>{this.state.user.nationality}</p>
+        <p>{this.state.user.education}</p>
+        <p>{this.state.user.school}</p>
+        <p>{this.state.user.interests}</p>
+        <p>{this.state.user.work_email}</p>
         <p>{this.state.user.}</p>
         <p>{this.state.user.}</p>
         <p>{this.state.user.}</p>
