@@ -195,7 +195,7 @@ class Home extends React.Component {
         <MatchesAndRequests />
         <div className={styles.main_grid}>
           <Switch>
-            <Route path="/updateprofile"></Route>
+            {/* <Route path="/updateprofile"></Route> */}
             <Route path="/profile">
               <Profile />
             </Route>
