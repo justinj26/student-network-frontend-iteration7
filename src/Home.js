@@ -8,6 +8,7 @@ import Mentors from "./Mentors";
 import Profile from "./Profile";
 import Filter from "./Filter";
 import MatchesAndRequests from "./MatchesAndRequests";
+import UpdateProfile from "./UpdateProfile";
 // import Nav from "react-bootstrap/Nav";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 // import Form from "react-bootstrap/Form";
@@ -219,7 +220,9 @@ class Home extends React.Component {
             <Route path="/filter">
               <HomePageBadgeGrid2 users={this.state.filtered_users} />
             </Route>
-            <Route></Route>
+            <Route path="/editprofile">
+              <UpdateProfile />
+            </Route>
             <Route></Route>
           </Switch>
 
