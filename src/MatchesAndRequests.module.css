@@ -17,6 +17,14 @@
   background: #f9b916;
 }
 
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  
+}
+
 @media only screen and (min-width: 768px) and (max-width: 992px) {
 
   .matches_and_requests_box {
