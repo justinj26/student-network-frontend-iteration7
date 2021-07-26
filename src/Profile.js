@@ -17,8 +17,22 @@ class Profile extends React.Component {
   }
 
   async componenetDidMount() {
+    // let options = {
+    //   user_id: "60b331d192bf21a0e630892a"
+    //   headers: {
+    //     Authorization: 'Basic a8df3427e4344bbeacc80b9e22b6cddc'
+    //   }
+    // }
     try {
-      const response = await axios.get(url_user_info);
+      const response = await axios.post(
+        url_user_info,
+        "60b331d192bf21a0e630892a",
+        {
+          headers: {
+            Authorization: `Basic ${"a8df3427e4344bbeacc80b9e22b6cddc"}`
+          }
+        }
+      );
       const json = await response.json();
       this.setState({ user: json });
     } catch (error) {
@@ -36,7 +50,7 @@ class Profile extends React.Component {
     // work_email = form["work_email"])
     return (
       <div>
-        <p>{this.state.user.first_name}</p>
+        <p>First name: {this.state.user.first_name}</p>
         <p>{this.state.user.last_name}</p>
         <p>{this.state.user.nationality}</p>
         <p>{this.state.user.education}</p>

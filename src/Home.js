@@ -161,19 +161,19 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/home">
             <b>Home</b>
           </Button>
-          <Button component={RouterLink} to="/home/user">
+          <Button component={RouterLink} to="/user">
             <b>Profile</b>
           </Button>
           {/* <Button component={RouterLink} to="">
             Mentors
           </Button> */}
-          <Button component={RouterLink} to="/home/inbox">
+          <Button component={RouterLink} to="/inbox">
             <b>Inbox</b>
           </Button>
-          <Button component={RouterLink} to="/home/Calendar">
+          <Button component={RouterLink} to="/calendar">
             <b>Calendar</b>
           </Button>
-          <Button component={RouterLink} to="/home/search">
+          <Button component={RouterLink} to="/search">
             <b>Search</b>
           </Button>
           {/* <Button
@@ -222,7 +222,9 @@ class Home extends React.Component {
             <Route path="/editprofile">
               <UpdateProfile />
             </Route>
-            <Route></Route>
+            <Route path="/home">
+              <HomePageBadgeGrid2 users={users} />
+            </Route>
             <Route></Route>
             <Route></Route>
             <Route></Route>
