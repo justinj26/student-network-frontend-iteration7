@@ -4,7 +4,8 @@ import { Link as RouterLink } from "react-router-dom";
 const React = require("react");
 const axios = require("axios");
 
-const url = "https://student-network-backend-stage.herokuapp.com/userprofile";
+const url_user_info =
+  "https://student-network-backend-stage.herokuapp.com/userprofile";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Profile extends React.Component {
 
   async componenetDidMount() {
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(url_user_info);
       const json = await response.json();
       this.setState({ user: json });
     } catch (error) {
@@ -35,14 +36,14 @@ class Profile extends React.Component {
     // work_email = form["work_email"])
     return (
       <div>
-        {/* <p>{this.state.user.first_name}</p>
+        <p>{this.state.user.first_name}</p>
         <p>{this.state.user.last_name}</p>
         <p>{this.state.user.nationality}</p>
         <p>{this.state.user.education}</p>
         <p>{this.state.user.school}</p>
         <p>{this.state.user.interests}</p>
         <p>{this.state.user.work_email}</p>
-        <p>{this.state.user.}</p>
+        {/* <p>{this.state.user.}</p>
         <p>{this.state.user.}</p>
         <p>{this.state.user.}</p>
         <p>{this.state.user.}</p>

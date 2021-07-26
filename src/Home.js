@@ -65,7 +65,6 @@ class Home extends React.Component {
       saved_profiles: [],
       filtered_users: [],
       mentor_interface: false
-      
     };
 
     this.toggleButton = this.toggleButton.bind(this);
@@ -140,9 +139,9 @@ class Home extends React.Component {
   // handleInterface() {
   //   this.setState({ mentor_interface: !this.state.mentor_interface})
   // }
-  filterFunction=(filtered_users_from_child)=>{
-    this.setState({ filtered_users: filtered_users_from_child})
-  }
+  filterFunction = (filtered_users_from_child) => {
+    this.setState({ filtered_users: filtered_users_from_child });
+  };
 
   render() {
     // as a note for this page
@@ -191,7 +190,7 @@ class Home extends React.Component {
           {/* </ButtonGroup>
           </ButtonToolbar> */}
         </div>
-        <Filter functionCallFromHome={this.filterFunction.bind(this)}/>
+        <Filter functionCallFromHome={this.filterFunction.bind(this)} />
         <MatchesAndRequests />
         <div className={styles.main_grid}>
           <Switch>
@@ -224,9 +223,12 @@ class Home extends React.Component {
               <UpdateProfile />
             </Route>
             <Route></Route>
+            <Route></Route>
+            <Route></Route>
+            <Route></Route>
           </Switch>
 
-          <HomePageBadgeGrid2 users={users} />
+          {/* <HomePageBadgeGrid2 users={users} /> */}
         </div>
       </div>
     );
