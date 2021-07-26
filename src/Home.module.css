@@ -92,6 +92,12 @@
   }
 }
 
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .main_grid {
+    grid-gap: 10% 10%;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .sn_banner {
     font-size: 1rem;

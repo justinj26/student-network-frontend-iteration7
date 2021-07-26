@@ -26,7 +26,6 @@ const student_status = ["High School", "Undergraduate", "Graduate"];
 const years = ["1", "2", "3", "4"];
 const countries = Object.keys(countries_json);
 
-
 const url = "https://student-network-backend-stage.herokuapp.com/login";
 
 class SignUp1 extends React.Component {
@@ -134,12 +133,23 @@ class SignUp1 extends React.Component {
 
     event.preventDefault();
 
+    let interests_to_send = [
+      this.state.data.extracurricular2,
+      this.state.data.extracurricular3
+    ];
+
     const user = {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
       email: this.state.email,
       password: this.state.password,
-      mentor_capacity: false
+      // mentor_capacity: false
+      nationality: this.state.data.nationality,
+      student_status: this.state.data.student_status,
+      school_name: this.state.data.school_name,
+      potential_major: this.state.data.potential_major,
+      interests: interests_to_send,
+      fun_fact: this.state.data.fun_fact
     };
 
     try {
@@ -159,7 +169,6 @@ class SignUp1 extends React.Component {
       extracurricular2: this.state.data.extracurricular2,
       extracurricular3: this.state.data.extracurricular3,
       fun_fact: this.state.data.fun_fact
-  
     };
 
     try {
@@ -181,7 +190,7 @@ class SignUp1 extends React.Component {
 
     event.preventDefault();
 
-    this.setState({ count: 1 })
+    this.setState({ count: 1 });
   }
 
   handleToggle2(event) {
@@ -194,22 +203,18 @@ class SignUp1 extends React.Component {
 
     event.preventDefault();
 
-    this.setState({ count: 2})
+    this.setState({ count: 2 });
   }
 
+  //   const response = await axios.post(url, user);
+  //   const json = response.json();
+  //   // store the user in localStorage
+  //   localStorage.setItem("user_id", json["user_id"]);
+  //   localStorage.setItem("token", json["token"]);
+  //   console.log(response.data);
+  //   // <Redirect to="/home" />
+  // }
 
-
- 
-
-    //   const response = await axios.post(url, user);
-    //   const json = response.json();
-    //   // store the user in localStorage
-    //   localStorage.setItem("user_id", json["user_id"]);
-    //   localStorage.setItem("token", json["token"]);
-    //   console.log(response.data);
-    //   // <Redirect to="/home" />
-    // }
- 
   // might not be a bad time for a get request /
   // this login information might be passed to the
   // the rest of the app
@@ -218,7 +223,6 @@ class SignUp1 extends React.Component {
   // and then display those errors.
 
   render() {
-
     let years_filter =
       this.state.data.student_statuses === "Graduate"
         ? years.slice(0, 3)
@@ -229,7 +233,7 @@ class SignUp1 extends React.Component {
     //     <div className={styles.header}>
     //       <h1>The Student Network</h1>
     //     </div>
-    // );   
+    // );
 
     const signup1 = (
       <div className={styles.login_box}>
@@ -306,14 +310,14 @@ class SignUp1 extends React.Component {
             </Col>
           </Form.Group>
           <p>
-          <b>Let's Get Networking...</b>
+            <b>Let's Get Networking...</b>
           </p>
           <Form.Group as={Row}>
-              <Col sm={{ span: 10, offset: 2 }}>
-                <Button onClick={this.handleToggle1} type="submit">
-                  <ArrowForwardIcon />
-                </Button>
-              </Col>
+            <Col sm={{ span: 10, offset: 2 }}>
+              <Button onClick={this.handleToggle1} type="submit">
+                <ArrowForwardIcon />
+              </Button>
+            </Col>
           </Form.Group>
         </Form>
         {/* <br />
@@ -399,11 +403,11 @@ class SignUp1 extends React.Component {
           </Form.Group>
           <br />
           <Form.Group as={Row}>
-              <Col sm={{ span: 10, offset: 2 }}>
-                <Button onClick={this.handleToggle2} type="submit">
-                  <ArrowForwardIcon />
-                </Button>
-              </Col>
+            <Col sm={{ span: 10, offset: 2 }}>
+              <Button onClick={this.handleToggle2} type="submit">
+                <ArrowForwardIcon />
+              </Button>
+            </Col>
           </Form.Group>
         </Form>
         {/* <br />
@@ -420,124 +424,122 @@ class SignUp1 extends React.Component {
       <div className={styles.login_box}>
         <Form>
           <Form.Group as={Row} controlId="formHorizontalEmail">
-              <Form.Label column sm={2}>
-                School Name:
-              </Form.Label>
-              <Col sm={10}>
-                <Form.Control
-                  type="text"
-                  value={this.state.data.school_name}
-                  onChange={this.handleSchoolName}
-                  placeholder="School Name"
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  {/* username or password not recognized */}
-                </Form.Control.Feedback>
-              </Col>
-            </Form.Group>
-            <br />
-            <Form.Group as={Row} controlId="formHorizontalEmail">
-              <Form.Label column sm={2}>
-                Potential major:
-              </Form.Label>
-              <Col sm={10}>
-                <Form.Control
-                  as="select"
-                  value={this.state.data.potential_major}
-                  onChange={this.handlePotentialMajor}
-                  custom
-                >
-                  {majors.sort().map((major) => (
-                    <option>{major}</option>
-                  ))}
-                </Form.Control>
-              </Col>
-            </Form.Group>
-            <br />
-            <Form.Group as={Row} controlId="formHorizontalEmail">
-              <Form.Label column sm={2}>
-                Extracurriculars:
-              </Form.Label>
-              <Col sm={10}>
-                <Form.Control
-                  as="select"
-                  value={this.state.data.extracurricular1}
-                  onChange={this.handleExtracurricular1}
-                  custom
-                >
-                  {extracurriculars.sort().map((extracurricular) => (
-                    <option>{extracurricular}</option>
-                  ))}
-                </Form.Control>
-                <Form.Control.Feedback type="invalid">
-                  {/* username or password not recognized */}
-                </Form.Control.Feedback>
-                <Form.Control
-                  as="select"
-                  value={this.state.data.extracurricular2}
-                  onChange={this.handleExtracurricular2}
-                  custom
-                >
-                  {extracurriculars.sort().map((extracurricular) => (
-                    <option>{extracurricular}</option>
-                  ))}
-                </Form.Control>
-                <Form.Control.Feedback type="invalid">
-                  {/* username or password not recognized */}
-                </Form.Control.Feedback>
-                <Form.Control
-                  as="select"
-                  value={this.state.data.extracurricular3}
-                  onChange={this.handleExtracurricular3}
-                  custom
-                >
-                  {extracurriculars.sort().map((extracurricular) => (
-                    <option>{extracurricular}</option>
-                  ))}
-                </Form.Control>
-                <Form.Control.Feedback type="invalid">
-                  {/* username or password not recognized */}
-                </Form.Control.Feedback>
-              </Col>
-            </Form.Group>
-            <br />
-            <Form.Group as={Row} controlId="formHorizontalEmail">
-              <Form.Label column sm={2}>
-                Fun fact:
-              </Form.Label>
-              <Col sm={10}>
-                <Form.Control
-                  as="textarea"
-                  type="textarea"
-                  value={this.state.data.fun_fact}
-                  onChange={this.handleFunFact}
-                  placeholder="Fun fact"
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  {/* username or password not recognized */}
-                </Form.Control.Feedback>
-              </Col>
-            </Form.Group>
-          </Form>
+            <Form.Label column sm={2}>
+              School Name:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                type="text"
+                value={this.state.data.school_name}
+                onChange={this.handleSchoolName}
+                placeholder="School Name"
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
           <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Potential major:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                as="select"
+                value={this.state.data.potential_major}
+                onChange={this.handlePotentialMajor}
+                custom
+              >
+                {majors.sort().map((major) => (
+                  <option>{major}</option>
+                ))}
+              </Form.Control>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Extracurriculars:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                as="select"
+                value={this.state.data.extracurricular1}
+                onChange={this.handleExtracurricular1}
+                custom
+              >
+                {extracurriculars.sort().map((extracurricular) => (
+                  <option>{extracurricular}</option>
+                ))}
+              </Form.Control>
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+              <Form.Control
+                as="select"
+                value={this.state.data.extracurricular2}
+                onChange={this.handleExtracurricular2}
+                custom
+              >
+                {extracurriculars.sort().map((extracurricular) => (
+                  <option>{extracurricular}</option>
+                ))}
+              </Form.Control>
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+              <Form.Control
+                as="select"
+                value={this.state.data.extracurricular3}
+                onChange={this.handleExtracurricular3}
+                custom
+              >
+                {extracurriculars.sort().map((extracurricular) => (
+                  <option>{extracurricular}</option>
+                ))}
+              </Form.Control>
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+          <br />
+          <Form.Group as={Row} controlId="formHorizontalEmail">
+            <Form.Label column sm={2}>
+              Fun fact:
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                as="textarea"
+                type="textarea"
+                value={this.state.data.fun_fact}
+                onChange={this.handleFunFact}
+                placeholder="Fun fact"
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                {/* username or password not recognized */}
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+        </Form>
+        <br />
         <p>
           <b>Let's Get Networking...</b>
         </p>
-        <Button onClick={this.handleSubmit}>
-           Sign Up
-        </Button>
+        <Button onClick={this.handleSubmit}>Sign Up</Button>
       </div>
     );
     let signup_page;
     let count = this.state.count;
     if (count === 0) {
-      signup_page = signup1
-    } else if (count === 1) {  
-      signup_page = signup2
+      signup_page = signup1;
+    } else if (count === 1) {
+      signup_page = signup2;
     } else if (count === 2) {
-      signup_page = signup3
+      signup_page = signup3;
     }
     return (
       <div className={styles.login_page}>
@@ -545,9 +547,7 @@ class SignUp1 extends React.Component {
           <h1>The Student Network</h1>
         </div>
         {signup_page}
-           
-        
-        
+
         {/* <div className={styles.login_box}>
           <Form>
           <Form.Group as={Row} controlId="formHorizontalEmail">

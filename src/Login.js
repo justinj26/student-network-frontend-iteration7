@@ -1,7 +1,8 @@
 // Login page
+import Button from "@material-ui/core/Button";
 import styles from "./Login.module.css";
 import Form from "react-bootstrap/Form";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link as RouterLink } from "react-router-dom";
@@ -94,7 +95,11 @@ class Login extends React.Component {
                   Password
                 </Form.Label> */}
                 <Col sm={10}>
-                  <Form.Control type="password" placeholder="Password" required />
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    required
+                  />
                   <br />
                   <Form.Control.Feedback type="invalid">
                     {/* username or password not recognized */}
@@ -119,8 +124,13 @@ class Login extends React.Component {
           </div>
           <div className={styles.sign_up}>
             <h5>No account?</h5>
-          
-            <Button variant="contained" color="primary" component={RouterLink} to="/signup">
+
+            <Button
+              variant="contained"
+              color="primary"
+              component={RouterLink}
+              to="/signup"
+            >
               Sign Up!
             </Button>
           </div>

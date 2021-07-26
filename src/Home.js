@@ -8,6 +8,7 @@ import Mentors from "./Mentors";
 import Profile from "./Profile";
 import Filter from "./Filter";
 import MatchesAndRequests from "./MatchesAndRequests";
+import UpdateProfile from "./UpdateProfile";
 // import Nav from "react-bootstrap/Nav";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 // import Form from "react-bootstrap/Form";
@@ -161,7 +162,7 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/home">
             <b>Home</b>
           </Button>
-          <Button component={RouterLink} to="home/user">
+          <Button component={RouterLink} to="/home/user">
             <b>Profile</b>
           </Button>
           {/* <Button component={RouterLink} to="">
@@ -173,7 +174,7 @@ class Home extends React.Component {
           <Button component={RouterLink} to="/home/Calendar">
             <b>Calendar</b>
           </Button>
-          <Button component={RouterLink} to="home/search">
+          <Button component={RouterLink} to="/home/search">
             <b>Search</b>
           </Button>
           {/* <Button
@@ -194,7 +195,7 @@ class Home extends React.Component {
         <MatchesAndRequests />
         <div className={styles.main_grid}>
           <Switch>
-            <Route path="/updateprofile"></Route>
+            {/* <Route path="/updateprofile"></Route> */}
             <Route path="/profile">
               <Profile />
             </Route>
@@ -213,13 +214,15 @@ class Home extends React.Component {
             <Route path="/outgoing_match_requests">
               <HomePageBadgeGrid2 users={this.state.outgoing_match_requests} />
             </Route>
-            <Route path="/saved_profiles">
+            <Route path="/home/saved_profiles">
               <HomePageBadgeGrid2 users={this.state.saved_profiles} />
             </Route>
             <Route path="/filter">
-              <HomePageBadgeGrid2 users={this.state.filtered_users}>
+              <HomePageBadgeGrid2 users={this.state.filtered_users} />
             </Route>
-            <Route></Route>
+            <Route path="/editprofile">
+              <UpdateProfile />
+            </Route>
             <Route></Route>
           </Switch>
 

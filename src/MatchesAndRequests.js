@@ -30,23 +30,23 @@ class MatchesAndRequests extends React.Component {
       <div>
         <div className={styles.matches_and_requests_box}>
           <div>
-            <Button component={RouterLink} to="home/all_matches"><ChevronRightIcon /></Button>  
+            <Button component={RouterLink} to="/home/all_matches"><ChevronRightIcon /></Button>  
             Favorite Matches
           </div>
           <div>
-            <Button component={RouterLink} to="home/incoming_match_requests"><ChevronRightIcon /></Button>  
+            <Button component={RouterLink} to="/home/incoming_match_requests"><ChevronRightIcon /></Button>  
             Incoming Matches Requests
           </div>
           <div>
-            <Button component={RouterLink} to="home/favorite_matches"><ChevronRightIcon /></Button>  
+            <Button component={RouterLink} to="/home/favorite_matches"><ChevronRightIcon /></Button>  
             Favorite Matches
           </div>
           <div>
-            <Button component={RouterLink} to="home/outgoing_match_requests"><ChevronRightIcon /></Button>  
+            <Button component={RouterLink} to="/home/outgoing_match_requests"><ChevronRightIcon /></Button>  
             Outgoing Match Requests
           </div>
           <div>
-            <Button component={RouterLink} to="home/saved_profiles"><ChevronRightIcon /></Button>  
+            <Button component={RouterLink} to="/home/saved_profiles"><ChevronRightIcon /></Button>  
             Saved Profiles
           </div>
           

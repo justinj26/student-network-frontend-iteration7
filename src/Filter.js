@@ -93,10 +93,10 @@ class Filter extends React.Component {
     this.setState({ filter_education: event.target.value });
   }
 
-  childFunction=(e)=>{
-    e.preventDefault();
-    this.props.functionCallFromHome(`${this.state.users_to_display}`);
-  }
+  // childFunction=(e)=>{
+  //   e.preventDefault();
+  //   this.props.functionCallFromHome(`${this.state.users_to_display}`);
+  // }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -137,12 +137,12 @@ class Filter extends React.Component {
     }
     if (this.state.filter_extracurricular2 !== "") {
       users_to_display = users_to_display.filter(
-        (user) => user.extracurricular2 === this.state.filter_extracurricular2
+        (user) => user.interests.member(this.state.filter_extracurricular2)
       );
     }
     if (this.state.filter_extracurricular3 !== "") {
       users_to_display = users_to_display.filter(
-        (user) => user.extracurricular3 === this.state.filter_extracurricular3
+        (user) => user.interests.member(this.state.filter_extracurricular3)
       );
     }
     if (this.state.filter_school !== "") {
@@ -155,8 +155,9 @@ class Filter extends React.Component {
         (user) => user.nationality === this.state.filter_nationality
       );
     }
+    this.setState({ users_to_display: users_to_display})
 
-    this.props.functionCallFromHome(`${this.state.users_to_display}`)
+    this.props.functionCallFromHome(`${this.state.users_to_display}`);
   }
 
   render() {
@@ -311,7 +312,7 @@ class Filter extends React.Component {
       //     {/* <Button type="submit" onClick={this.handleSubmit} component={RouterLink} to="/home/filter">Search using filter</Button> */}
       //   </form>
       <div className={styles.filter_box}>
-        <h6>Filter: </h6>
+        <h2 className={styles.filter_title}>Filter: </h2>
         <Form>
           <Form.Group as={Row} controlId="formHorizontalEmail">
             <Form.Label column sm={2}>
@@ -323,7 +324,7 @@ class Filter extends React.Component {
                 value={this.state.filter_nationality}
                 onChange={this.handleNationality}
                 custom
-                required
+                // required
               >
                 <option>{""}</option>
                 {countries.map((country) => (
@@ -475,7 +476,13 @@ class Filter extends React.Component {
             </Col>
           </Form.Group>
           <br />
-          <Button variant="outlined" onChange={this.handleSubmit}  type="submit" component={RouterLink} to="/filter">
+          <Button
+            variant="outlined"
+            onChange={this.handleSubmit}
+            type="submit"
+            component={RouterLink}
+            to="/filter"
+          >
             {/* onClick={this.childFunction.bind(this)} */}
             Filter
           </Button>

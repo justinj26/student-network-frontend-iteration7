@@ -34,36 +34,33 @@ select[option].filter_box {
 }
 
 /* select.filter_box { */
-  /* display: inline; */
-  /* border: none; */
-  /* max-width: 80%; */
-  /* border: 0px;
+/* display: inline; */
+/* border: none; */
+/* max-width: 80%; */
+/* border: 0px;
   outline: 0px; */
-  /* background-color: transparent; */
+/* background-color: transparent; */
 /* } */
 
 .filter_box select {
-max-width: 90%;
-background-color: transparent;
+  max-width: 90%;
+  background-color: transparent;
 
-border-radius: 10px;
-
+  border-radius: 10px;
 }
 
 .filter_box input {
   max-width: 78%;
 }
 
+#filter_title {
+  font-size: 1.25rem;
+}
+
 /* thought, a label is probably a block */
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-
   .filter_box {
     width: 25%;
   }
-
- 
-
-
-
 }
